@@ -94,5 +94,5 @@ spec:
       volumes:
       - name: redis-data
         persistentVolumeClaim:
-          claimName: redisdb-dev-pvc
+          claimName: redisdb-pvc
 

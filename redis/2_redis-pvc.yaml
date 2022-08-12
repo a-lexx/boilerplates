@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: redisdb-dev-pvc
+  name: redisdb-pvc
 spec:
   storageClassName: ""
   accessModes:
