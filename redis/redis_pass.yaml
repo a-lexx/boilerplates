@@ -1,6 +1,4 @@
-#########################################################
-# Redis service
-#########################################################
+---
 kind: Service
 apiVersion: v1
 metadata:
@@ -19,9 +17,6 @@ spec:
     port: 9121
     targetPort: 9121
 ---
-#########################################################
-# Redis deployment
-#########################################################
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -95,4 +90,3 @@ spec:
       - name: redis-data
         persistentVolumeClaim:
           claimName: redisdb-pvc
-

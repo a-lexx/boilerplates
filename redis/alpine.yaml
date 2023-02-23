@@ -5,7 +5,7 @@ metadata:
   name: alpine
 spec:
   containers:
-  - image: alpine:3.2
+  - image: alpine:3.16
     command:
       - /bin/sh
       - "-c"
@@ -19,5 +19,4 @@ spec:
   volumes:
   - name: redis-data
     persistentVolumeClaim:
-      claimName: redisdb-dev-pvc
-
+      claimName: redisdb-pvc

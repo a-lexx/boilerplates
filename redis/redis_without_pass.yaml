@@ -72,20 +72,19 @@ spec:
             cpu: 200m
             memory: 200Mi
 ### redis exporter ###
-#      - name: redis-exporter
-#        image: oliver006/redis_exporter:latest
-#        ports:
-#          - containerPort: 9121
-#            name: redis-exporter
-#        resources:
-#          requests:
-#            cpu: 100m
-#            memory: 100Mi
-#          limits:
-#            cpu: 200m
-#            memory: 200Mi
+      - name: redis-exporter
+        image: oliver006/redis_exporter:latest
+        ports:
+          - containerPort: 9121
+            name: redis-exporter
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+          limits:
+            cpu: 200m
+            memory: 200Mi
       volumes:
       - name: redis-data
         persistentVolumeClaim:
           claimName: redisdb-dev-pvc
-
