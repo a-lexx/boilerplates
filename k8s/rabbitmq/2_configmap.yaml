@@ -1,3 +1,4 @@
+---
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -41,7 +42,7 @@ data:
       management.load_definitions = /etc/rabbitmq/definitions.json
   definitions.json: |
     {
-     "rabbit_version": "3.9",
+     "rabbit_version": "3.11",
      "users": [
       {
        "name": "local_jobs",
@@ -76,11 +77,3 @@ data:
      "exchanges": [],
      "bindings": []
     }
-#---
-#apiVersion: v1
-#kind: ConfigMap
-#metadata:
-#  name: tcp-services
-#  namespace: develop
-#data:
-#  5672: "develop/rabbitmq:5672"

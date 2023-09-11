@@ -1,0 +1,25 @@
+---
+extends: default
+
+rules:
+  # don't bother me with this rule
+  indentation: disable
+  comments-indentation: disable
+  # 80 chars should be enough, but don't fail if a line is longer
+  line-length:
+    max: 150
+    level: warning
+
+  key-duplicates:
+    ignore: |
+      generated
+      *.template.yaml
+  trailing-spaces:
+    ignore: |
+      *.ignore-trailing-spaces.yaml
+      /ascii-art/*
+
+ignore: |
+  *.dont-lint-me.yaml
+  /bin/
+  !/bin/*.lint-me-anyway.yaml
