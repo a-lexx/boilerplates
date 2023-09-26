@@ -37,17 +37,17 @@ spec:
     spec:
       containers:
       - name: redis
-        image: redis
+        image: redis:7.2
         imagePullPolicy: Always
-#        #args: ["--appendonly", "yes", "--save", "30", "100"]
-        args: ["--appendonly", "no", "--save", "30", "100"]
+        #args: ["--appendonly", "yes", "--save", "30", "100"] # if new setup
+        args: ["--appendonly", "no", "--save", "30", "100"] # 4 current setup
         volumeMounts:
         - name: redis-data
           mountPath: /data
         resources:
           limits:
             cpu: 200m
-            memory: 200Mi
+            memory: 600Mi
           requests:
             cpu: 100m
             memory: 100Mi
@@ -64,6 +64,10 @@ spec:
         ports:
           - containerPort: 6379
             name: redis
+      volumes:
+      - name: redis-data
+        persistentVolumeClaim:
+          claimName: redisdb-pvc
 #### redis exporter ###
 #      - name: redis-exporter
 #        image: oliver006/redis_exporter:latest
@@ -77,7 +81,3 @@ spec:
 #          limits:
 #            cpu: 200m
 #            memory: 200Mi
-      volumes:
-      - name: redis-data
-        persistentVolumeClaim:
-          claimName: redisdb-dev-pvc

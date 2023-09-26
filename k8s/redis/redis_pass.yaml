@@ -35,7 +35,7 @@ spec:
     spec:
       containers:
       - name: redis
-        image: redis
+        image: redis:7.2
         imagePullPolicy: Always
         args: ["--requirepass", "$(REDIS_PASSWORD)", "--appendonly", "no", "--save", "30", "100"]
         volumeMounts:
