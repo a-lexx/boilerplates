@@ -1,0 +1,23 @@
+version: '3.9'
+services:
+  testing:
+    container_name: test
+    hostname: test
+    image: devops:v0.01
+    deploy:
+      resources:
+        limits:
+          cpus: 2
+          memory: 512M
+        reservations:
+          cpus: 1
+          memory: 256M
+    build:
+      context: .
+      dockerfile: Dockerfile
+    networks:
+      - pp_test
+networks:
+  pp_test:
+    driver: bridge
+    external: false
